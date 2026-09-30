@@ -1,4 +1,4 @@
-from controller.produto_controller import ProdutoController, UsuarioController
+from controller.produto_controller import ProdutoController, ProdutoController
 from view.produto_view import menu_principal
 
 
