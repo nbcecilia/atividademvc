@@ -1,5 +1,5 @@
-from model.produto_model import ProdutoModel, UsuarioModel
-from view.produto_view import mostrar_produtos, mostrar_usuarios, mensagem, solicitar_dados_usuario, solicitar_id
+from model.produto_model import ProdutoModel, ProdutoModel
+from view.produto_view import mostrar_produtos, mostrar_produtos, mensagem, solicitar_dados_produto, solicitar_dados_produto, solicitar_id
 
 
 
@@ -16,7 +16,7 @@ class ProdutoController:
 
     def cadastrar(self):
         try:
-            nome, preco = solicitar_dados_usuario()
+            nome, preco = solicitar_dados_produto()
             if not nome or not preco:
                 mensagem("Nome e preço são obrigatórios!")
                 return
@@ -30,7 +30,7 @@ class ProdutoController:
             id_produto = solicitar_id()
             if id_produto is None:
                 return
-            nome, preco = solicitar_dados_usuario()
+            nome, preco = solicitar_dados_produto()
             self.model.atualizar_produto(id_produto, nome, preco)
             mensagem("Produto atualizado com sucesso!")
         except Exception as e:
